@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
- import css from './Feedback.module.css';
- import { styled } from 'styled-components';
+// import PropTypes from 'prop-types';
+//  import css from './Feedback.module.css';
+//  import { styled } from 'styled-components';
 
 class Feedback extends React.Component{
     // constructor() {
@@ -20,27 +20,38 @@ state = {
 
     
     handleGood = (event) => {
-        this.setState({
-            good: 1,
-        });
+        this.setState(prevState => {
+            return {
+                good: prevState.good +1,
+            };  });
+            
+        
         // const target = event.target;
-        const { target } = event;
-        console.log('Добавить хорошо');
-        console.log(this);
-        console.log(event.target);
-        setTimeout(() => {
-            console.log(target);
-        }, 1000);
+        // const { target } = event;
+        // console.log('Добавить хорошо');
+        // console.log(this);
+        // console.log(event.target);
+        // setTimeout(() => {
+        //     console.log(target);
+        // }, 1000);
     };
 
     
 
     handleNeutral = (event) => {
-       
+        this.setState(prevState => {
+            return {
+                neutral: prevState.neutral +1,
+            };  });
         console.log('Добавить нейтрально');
         console.log(this);
     };
-     handleBad = (event) => {
+    handleBad = (event) => {
+         
+        this.setState(prevState => {
+            return {
+                bad: prevState.bad +1,
+            };  });
         console.log('Добавить плохо');
          console.log(this);
     }
