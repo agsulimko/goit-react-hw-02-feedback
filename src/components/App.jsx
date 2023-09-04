@@ -3,7 +3,12 @@ export const App = () =>  (
 
   
     
-      <Feedback/>
+  <Feedback
+    initialGood={0}
+       initialNeutral={0}
+    initialBad={0}
+    
+  />
       
       
      
