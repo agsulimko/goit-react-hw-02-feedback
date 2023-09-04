@@ -1,42 +1,43 @@
+import { number } from 'prop-types';
 import React from 'react';
 // import PropTypes from 'prop-types';
 //  import css from './Feedback.module.css';
 //  import { styled } from 'styled-components';
 
+//  количество собранных отзывов 
+        function countTotalFeedback(good, neutral, bad) {
+    return (Number(good)+Number(neutral)+Number(bad))
+}
+
+     // процент положительных отзывов   
+function countPositiveFeedbackPercentage(good, neutral, bad) {
+    return (Math.round((Number(good)+Number(neutral))* 100 /(Number(good)+Number(neutral)+Number(bad)))  )
+}
+
+
+
 class Feedback extends React.Component {
-    static defaultProps = {
-        initialGood: 0,
-        initialNeutral: 0,
-        initialBad: 0,
-        initialTotal: 0,
-        positiveFeedback: 0,
 
-    };
-       
-        // }
-        // constructor() {
-        //     super();
-        //     this.state = {
-        //         good: 0,
-        //         neutral: 0,
-        //         bad: 0,
-        //     };
-        // };
-
-        // state = {
-        //             good: 0,
-        //             neutral: 0,
-        //             bad: 0,
-        //         };
-        state = {
-            good: this.props.initialGood,
-            neutral: this.props.initialNeutral,
-            bad: this.props.initialBad,
-            total: this.props.initialTotal,
-            positiveFeedback: this.props.initialPositiveFeedback,
-            
-        }
     
+    // static defaultProps = {
+    //     initialGood: 0,
+    //     initialNeutral: 0,
+    //     initialBad: 0,
+    //     initialTotal: 0,
+    //     positiveFeedback: 0,
+
+    // };
+       
+       
+    state = {
+        good: this.props.initialGood,
+        neutral: this.props.initialNeutral,
+        bad: this.props.initialBad,
+        total: this.props.initialTotal,
+        positiveFeedback: this.props.initialPositiveFeedback,
+         
+    };
+  
     
         handleGood = (event) => {
             this.setState(prevState => {
@@ -88,9 +89,9 @@ class Feedback extends React.Component {
          
 //      }
 //  };
+    
 
-
-    render() {
+    render() {      
             return (
 
                 // const Feedback = () => {
@@ -108,23 +109,17 @@ class Feedback extends React.Component {
 
                     <p>Statistics</p>
 
-                    <span className='Feedback__Good'>{this.state.good}</span>
-                    <span className='Feedback__Neutral'>{this.state.neutral}</span>
-                    <span className='Feedback__Bad'>{this.state.bad}</span>
-                    <span className='Feedback__Total'>total{this.state.total}</span>
-                    <span className='Feedback__PositiveFeedback'>positive{this.state.total}</span>
+                    <span className='Feedback__Good'>Good: {this.state.good}</span>
+                    <span className='Feedback__Neutral'>Neutral: {this.state.neutral}</span>
+                    <span className='Feedback__Bad'>Bad: {this.state.bad}</span>
+                    <span className='Feedback__Total'>Total: {countTotalFeedback(this.state.good, this.state.neutral,this.state.bad)
+                    }</span>
+                    <span className='Feedback__PositiveFeedback'>Positive: {countPositiveFeedbackPercentage(this.state.good, this.state.neutral,this.state.bad)}%</span>
                 </div>
             );
         }
        
     };
 
- 
-//  количество собранных отзывов 
-
-// countTotalFeedback();
-
-// // процент положительных отзывов
-// countPositiveFeedbackPercentage();
 
 export default Feedback;
