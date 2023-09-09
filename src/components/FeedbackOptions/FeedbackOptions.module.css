@@ -1,0 +1,11 @@
+.options{
+    display: flex;
+flex-direction: row;
+gap:20px;
+}
+
+.btn{
+    background-color: #77b8d6;
+    border-radius: 5px;;
+
+}

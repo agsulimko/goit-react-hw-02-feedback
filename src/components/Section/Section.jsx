@@ -1,9 +1,8 @@
 import FeedbackOptions from "components/FeedbackOptions/FeedbackOptions"
 import Statistics from "components/Statistics/Statistics";
-// import { number } from 'prop-types';
- import React from 'react';
-// import PropTypes from 'prop-types';
-//  import css from './Feedback.module.css';
+import { Component } from 'react';
+
+ import css from './Section.module.css';
 //  import { styled } from 'styled-components';
 
 //  количество собранных отзывов 
@@ -11,7 +10,7 @@ import Statistics from "components/Statistics/Statistics";
 
 
 
-class Section extends React.Component {
+class Section extends Component {
 
     
     
@@ -94,7 +93,7 @@ render() {
             return (
 
                
-                <div className="Section">
+                <div className={css.section}>
 
                     <h3>Please leave feedback </h3>
                     <FeedbackOptions
