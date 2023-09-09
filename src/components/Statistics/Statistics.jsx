@@ -2,7 +2,7 @@
 
 const Statistics = ({ good, neutral, bad, total, positivePercentage }) => (
     <div className="Statistics">
-        <p>Statistics</p>
+        <h3>Statistics</h3>
        
         {good || neutral || bad ? <div>
             <span className='Feedback__Good'>Good: {good}</span>

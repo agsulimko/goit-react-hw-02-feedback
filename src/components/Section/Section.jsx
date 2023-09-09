@@ -96,7 +96,7 @@ render() {
                
                 <div className="Section">
 
-                    <p>Please leave feedback </p>
+                    <h3>Please leave feedback </h3>
                     <FeedbackOptions
                         onHandleGood={this.handleGood} onHandleNeutral={this.handleNeutral} onHandleBad={this.handleBad}
                     />
