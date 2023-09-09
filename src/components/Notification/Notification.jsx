@@ -1,10 +1,10 @@
 import React from 'react';
-
+import css from './Notification.module.css'
 function Notification({ message }) {
   return (
     
    
-<div className="notification">
+<div className={css.notification}>
       {message}
     </div>
   );
