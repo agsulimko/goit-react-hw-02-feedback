@@ -7,19 +7,13 @@ import Statistics from "components/Statistics/Statistics";
 //  import { styled } from 'styled-components';
 
 //  количество собранных отзывов 
-        function countTotalFeedback(good, neutral, bad) {
-    return (Number(good)+Number(neutral)+Number(bad))
-}
-
-     // процент положительных отзывов   
-function countPositiveFeedbackPercentage(good, neutral, bad) {
-    return (Math.round((Number(good)+Number(neutral))* 100 /(Number(good)+Number(neutral)+Number(bad)))  )
-}
+      
 
 
 
 class Section extends React.Component {
 
+    
     
     static defaultProps = {
         initialGood: 0,
@@ -85,10 +79,18 @@ class Section extends React.Component {
             console.log(this);
         }
 
-   
+countTotalFeedback(good, neutral, bad) {
+    return (Number(good)+Number(neutral)+Number(bad))
+}
+
+     // процент положительных отзывов   
+ countPositiveFeedbackPercentage(good, neutral, bad) {
+    return (Math.round((Number(good)+Number(neutral))* 100 /(Number(good)+Number(neutral)+Number(bad)))  )
+}
     
 
-    render() {      
+render() {   
+    
             return (
 
                
@@ -103,7 +105,7 @@ class Section extends React.Component {
                     good={this.state.good}
                       neutral={this.state.neutral}
                         bad={this.state.bad}
-                        total={countTotalFeedback(this.state.good, this.state.neutral,this.state.bad) } positivePercentage={countPositiveFeedbackPercentage(this.state.good, this.state.neutral, this.state.bad)}  
+                        total={this.countTotalFeedback(this.state.good, this.state.neutral,this.state.bad) } positivePercentage={this.countPositiveFeedbackPercentage(this.state.good, this.state.neutral, this.state.bad)}  
                     
                     />  
                   
